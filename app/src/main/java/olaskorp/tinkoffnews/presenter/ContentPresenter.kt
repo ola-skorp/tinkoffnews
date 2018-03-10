@@ -24,6 +24,7 @@ class ContentPresenter(private val newsId: String,
 
     override fun destroy() {
         this.disposableUpdate?.let { if (!it.isDisposed) it.dispose() }
+        this.disposableGetTitle?.let { if (!it.isDisposed) it.dispose() }
         this.disposableGetContent?.let { if (!it.isDisposed) it.dispose() }
     }
 
