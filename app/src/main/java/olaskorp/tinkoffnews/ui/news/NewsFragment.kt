@@ -23,6 +23,8 @@ import olaskorp.tinkoffnews.mappers.NewsTitleFromRemoteToCacheModelMapper
 import olaskorp.tinkoffnews.presenter.NewsPresenter
 import olaskorp.tinkoffnews.presenter.Presenter
 import olaskorp.tinkoffnews.ui.content.ContentFragment
+import olaskorp.tinkoffnews.utils.buildDefaultInstance
+import retrofit2.Retrofit
 
 /**
  * Фрагмент со списком новостей
@@ -46,6 +48,7 @@ class NewsFragment : Fragment(), INewsView {
 
         val repository = NewsDataRepository(
                 NewsRemoteDataSource(
+                        Retrofit.Builder().buildDefaultInstance(),
                         NewsTitleFromRemoteToCacheModelMapper(DateFromRemoteToCacheModelMapper()),
                         NewsContentFromRemoteToCacheModelMapper()),
                 NewsCacheDataSource(),

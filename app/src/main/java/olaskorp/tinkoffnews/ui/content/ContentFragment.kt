@@ -21,6 +21,8 @@ import olaskorp.tinkoffnews.mappers.NewsContentFromRemoteToCacheModelMapper
 import olaskorp.tinkoffnews.mappers.NewsTitleFromRemoteToCacheModelMapper
 import olaskorp.tinkoffnews.presenter.ContentPresenter
 import olaskorp.tinkoffnews.presenter.Presenter
+import olaskorp.tinkoffnews.utils.buildDefaultInstance
+import retrofit2.Retrofit
 
 class ContentFragment : Fragment(), IContentView {
 
@@ -50,6 +52,7 @@ class ContentFragment : Fragment(), IContentView {
 
         val repository = NewsDataRepository(
                 NewsRemoteDataSource(
+                        Retrofit.Builder().buildDefaultInstance(),
                         NewsTitleFromRemoteToCacheModelMapper(DateFromRemoteToCacheModelMapper()),
                         NewsContentFromRemoteToCacheModelMapper()),
                 NewsCacheDataSource(),
