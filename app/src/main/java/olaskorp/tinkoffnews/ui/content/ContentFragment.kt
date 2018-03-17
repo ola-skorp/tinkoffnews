@@ -34,9 +34,7 @@ class ContentFragment : Fragment(), IContentView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null) {
-            newsId = arguments.getString(ARG_NEWS_ID)
-        }
+        this.arguments?.let { this.newsId = it.getString(ARG_NEWS_ID) }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
